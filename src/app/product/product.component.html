@@ -1,0 +1,53 @@
+<!--<p>product works!</p>
+<table>
+  <tr>
+    <th> id</th>
+    <th> title </th>
+    <th> price</th>
+    <th>quantity</th>
+    <th> like </th>
+
+  </tr>
+  <tr *ngFor="let product of listProduct">
+
+    <th> {{ product.id}} </th>
+    <th> {{ product.title}}   </th>
+    <th> {{product.price}}  </th>
+    <th> {{product.quantity}} </th>
+    <th> {{product.like }}  </th>
+    <button type="button" class="btn btn-primary"> BUY </button>
+    <button type="button" class="btn btn-primary">Like</button>
+
+  </tr>
+
+</table>
+-->
+<input type="number" value="" name="price" [(ngModel)]="priceMax"  />
+<div class="row">
+<div class="col-md-4" *ngFor="let product of listProduct,let i=index">
+  <div *ngIf="priceMax>=product.price||priceMax==null">
+  <div class="card" style="width: 18rem;" >
+  <img class="card-img-top" src="assets/img/{{product.title}}.jpg" alt="Card image cap">
+  <div  class="card-body"  >
+
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text"> ID: {{product.id}}</p>
+    <p class="card-text"> PRICE: {{product.price}}</p>
+    <p class="card-text">Quantity : {{product.quantity}}</p>
+    <p class="card-text"> LIKE: {{product.like}}</p>
+
+    <button href="#" class="btn btn-primary" (click)="decremente(i)" [disabled]="product.quantity==0" >buy!</button>
+    <button href="#" class="btn btn-primary" (click)="incremente(i)">like</button>
+    <button href="#" class="btn btn-primary" (click)="delete(product.id)">DELETE</button>
+    <button  class="btn btn-primary"   [routerLink]="['/detailProduct', product.id]">Detail</button>
+
+
+
+  </div>
+  </div></div>
+
+</div>
+
+</div>
+<button href="#" class="btn btn-primary" (click)="calculnombre()">Calculer</button>
+<h3>le nombre de produit dont la quantité egale a 0 : {{stock}}</h3>
