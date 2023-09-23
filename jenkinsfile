@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('Chekout GIT') {
+            steps {
+                echo 'Pulling';
+                 git branch:'master',
+                 url:"https://github.com/mhassini/avec-maven.git";
+            }
+        }
+    }
+}
