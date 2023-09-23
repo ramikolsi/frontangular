@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'Pulling';
                  git branch:'master',
-                 url:"https://github.com/mhassini/avec-maven.git";
+                 url:"https://github.com/ramikolsi/frontangular.git";
             }
         }
     }
